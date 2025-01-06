@@ -1,0 +1,235 @@
+:root{
+  --main_clr:#603F26;
+  --contrast_clr:#FFEAC5;
+}
+@font-face {
+  font-family: "Poiret One";
+  src:
+    url("assets/fonts/PoiretOne-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body{
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: var(--contrast_clr);
+  color:var(--main_clr);
+  font-family: "Poiret One";
+  font-style: normal;
+}
+main, .results-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+h1{
+  padding: 3rem;
+
+  text-align: center;
+  font-size: clamp(.25dvw,3rem,4em);
+}
+header p{
+ padding: 3rem;
+ font-size: clamp(1rem,1.6vw,4em);
+
+}
+p{
+  text-align: center;
+  font-size: 1.5rem;
+}
+section.lc-container{
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
+}
+li{
+  list-style: none;
+}
+header{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  min-height: 100dvh;
+  justify-items: center;
+  align-items: center;
+  padding: .25dvw 1dvw;
+
+}
+form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10rem 0 10rem 0;
+}
+
+@media(width <= 430px) {
+  header{
+    display: flex;
+    flex-direction: column;
+  }
+}
+.btn_start,.btn_submit{
+  color: var(--main_clr);
+  background-color: transparent;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 1px solid var(--main_clr);
+  font-family: "Poiret One";
+  cursor: pointer;
+
+  padding:clamp(.25dvw,1rem,1.4rem);
+
+}
+.img_main{
+  width: 50%;
+  height: 50dvh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("./assets/images/coffee-instant-svgrepo-com.svg");
+}
+
+.lc-ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1dvw;
+
+  border: 1px solid var(--main_clr);
+}
+.lc-li{
+  display: flex;
+  flex: 1 1;
+  padding: .6rem;
+  flex-direction: column;
+
+}
+.lc-options-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.lc-options-box{
+  display: flex;
+  margin: .25dvw 1dvw;
+  flex-direction: column-reverse;
+}
+label{
+  cursor: pointer;
+
+}
+input[type="radio"]{
+  display: none;
+  
+}
+input[type="radio"]:checked + div.img_options{
+  outline: 2px solid var(--main_clr);
+  border-radius: .15rem;
+}
+.img_options ,.results-card-image{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("./assets/images/coffee-instant-svgrepo-com.svg");
+  width: clamp(8rem, 20dvw, 20dvw);
+  height: 10rem;
+}
+
+.lc-li-question{
+  margin: 1rem 0 0 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+footer{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+  position: relative;
+  color: var(--contrast_clr);
+  margin-top: 20rem;
+  background-color: var(--main_clr);
+}
+@media(width <=430px)   {
+  footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+footer section{
+  display: block;
+}
+
+.copyright{
+  font-size: 1dvw;
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+
+}
+
+.app-footer-social{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 4rem;
+}
+.app-footer-social a{
+  margin: 1dvw;
+}
+footer p{
+padding: 1rem;
+margin: 0rem;
+font-size: clamp(1rem,1.6dvw,4em);
+
+}
+.app-footer-social a li {
+  height: 2dvw;
+  width: 2dvw;
+  background-size: contain;
+  background-position: center;
+}
+.footer-sides-section{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between
+}
+.footer-sides-section.last-section{
+  align-items: center;
+}
+#github_link{
+  background-image: url("./assets/images/github-142-svgrepo-com.svg");
+
+}
+#linkedin_link{
+  background-image: url("./assets/images/linkedin-svgrepo-com.svg");
+
+}
+
+.btn_submit{
+margin-top: 5rem;
+}
+.results-card{
+  flex-direction: column;
+}
+
+.results-card-box{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+.results-card-title{
+  font-size: 2rem;
+  grid-column: 1 / span end;
+  text-align: center;
+
+}
