@@ -1,6 +1,6 @@
 import { ResultsCard } from "./ResultsCard"
-export function Results(){
+export function Results({data}){
     return <section className="results-container">
-        <ResultsCard></ResultsCard>
+        <ResultsCard data={data}></ResultsCard>
     </section>
 }

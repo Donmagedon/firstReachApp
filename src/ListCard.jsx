@@ -1,21 +1,29 @@
-export function ListCard({statement,question1,question2}){
-    return <li className="lc-li">
+import  DOMPurify  from "dompurify";
+
+export function ListCard({ statement, questions,state }) {
+
+  if (questions)
+    return (
+      <li className="lc-li">
         <h2>{statement}</h2>
         <div className="lc-options-container">
-        <div className="lc-options-box">
-            <label htmlFor={question1}>
-            <input type="radio" name={statement} id={question1}/>
-            <div className="img_options"></div>
-            <p className="lc-li-question">{question1}</p>
-                </label></div>
-        <div className="lc-options-box">
-            <label htmlFor={question2}>
-            <input type="radio" name={statement} id={question2} />
-            <div  className="img_options"></div>
-            <p className="lc-li-question">{question2}</p>
-            </label>
-
-            </div>
+          {questions.map((data, index) => {
+            return (
+              <div key={index} className="lc-options-box">
+                <label htmlFor={data.question}>
+                  <input onChange={(e)=>{
+                    state(e)
+                  }
+                  } type="radio" name={statement} id={data.question} />
+                  <div  dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(data.svg)}} className="img_options">
+                    
+                  </div>
+                  <p className="lc-li-question">{data.question}</p>
+                </label>
+              </div>
+            );
+          })}
         </div>
-        </li>  
+      </li>
+    );
 }

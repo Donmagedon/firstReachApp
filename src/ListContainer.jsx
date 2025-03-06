@@ -1,19 +1,25 @@
 import { ListCard } from "./ListCard"
-export function ListContainer({listArry}){
+import { useState } from "react";
+export function ListContainer({listArry,state}){
+
     return <section className="lc-container">
         <ul className="lc-ul"> 
             {
                 listArry.map((data)=>{
                   return <ListCard 
-                  key={data.statement}
+                  key={data._id}
                   statement={data.statement}
-                  question1={data.question1}
-                  question2={data.question2}
-                  ></ListCard>
+                  questions={data.questions}
+                  state={state}
+
+                  >
+                  </ListCard>
                 })
+                
             }
                  
         </ul>
     </section>
     
 }
+

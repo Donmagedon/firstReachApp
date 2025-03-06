@@ -32,6 +32,9 @@ h1{
   text-align: center;
   font-size: clamp(.25dvw,3rem,4em);
 }
+h2{
+  text-align: center;
+}
 header p{
  padding: 3rem;
  font-size: clamp(1rem,1.6vw,4em);
@@ -86,13 +89,21 @@ form{
   padding:clamp(.25dvw,1rem,1.4rem);
 
 }
-.img_main{
+.img_options{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img_main,.img_options svg{
   width: 50%;
   height: 50dvh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+}
+.img_main{
   background-image: url("./assets/images/coffee-instant-svgrepo-com.svg");
+
 }
 
 .lc-ul{
@@ -114,6 +125,7 @@ form{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 .lc-options-box{
   display: flex;
@@ -132,13 +144,14 @@ input[type="radio"]:checked + div.img_options{
   outline: 2px solid var(--main_clr);
   border-radius: .15rem;
 }
-.img_options ,.results-card-image{
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url("./assets/images/coffee-instant-svgrepo-com.svg");
+
+.results-card-image{
   width: clamp(8rem, 20dvw, 20dvw);
   height: 10rem;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  
 }
 
 .lc-li-question{
