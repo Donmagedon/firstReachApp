@@ -39,7 +39,7 @@ export default function App() {
 
   const handleQuery = async function () {
     try{
-      const URI = "http://localhost:3030/api/generate_coffee"
+      const URI = "https://readmycoffeeapi.onrender.com/api/generate_coffee"
       const request = await fetch(URI,{
         method:"POST",
         body:JSON.stringify(input),
@@ -60,7 +60,7 @@ export default function App() {
   useEffect(()=> {
     const getQuestion = async function () {
       try {
-        const URI = "http://localhost:3030/api/questions";
+        const URI = "https://readmycoffeeapi.onrender.com/api/questions";
         const request = await fetch(URI, {
           method: "GET",
         });
