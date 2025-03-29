@@ -21,10 +21,13 @@ body{
   font-family: "Poiret One";
   font-style: normal;
 }
-main, .results-card{
+main, .results-card, .results-container{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.results-container{
+  flex-direction: column;
 }
 h1{
   padding: 3rem;

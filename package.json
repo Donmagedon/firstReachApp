@@ -11,9 +11,9 @@
     "deploy": "gh-pages -d dist"
   },
   "homepage": "https://donmagedon.github.io/firstReachApp/",
-
   "dependencies": {
     "dompurify": "^3.2.4",
+    "dotenv": "^16.4.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

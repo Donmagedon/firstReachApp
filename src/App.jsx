@@ -38,7 +38,7 @@ export default function App() {
 
   const handleQuery = async function () {
     try {
-      const URI = "https://readmycoffeeapi.onrender.com/api/generate_coffee";
+      const URI = import.meta.env.VITE_API_GENERATE_COFFEE;
       const request = await fetch(URI, {
         method: "POST",
         body: JSON.stringify(input),
@@ -54,6 +54,7 @@ export default function App() {
     }
   };
   const handleReset = function(event){
+
     event.preventDefault();
     changeView("default")
   };
@@ -61,7 +62,7 @@ export default function App() {
   useEffect(() => {
     const getQuestion = async function () {
       try {
-        const URI = "https://readmycoffeeapi.onrender.com/api/questions";
+        const URI = import.meta.env.VITE_API_QUESTIONS;
         const request = await fetch(URI, {
           method: "GET",
         });
