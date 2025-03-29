@@ -1,10 +1,10 @@
 import { ListContainer } from "./ListContainer";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Results } from "./Results";
 
 export default function App() {
   const [defaultView, changeView] = useState("default");
-  const [coffee, createCoffee] = useState(null)
+  const [coffee, createCoffee] = useState(null);
   const [input, setInput] = useState([]);
   const [moodQuestions, setMoodQuestions] = useState([]);
   const [personalityQuestions, setPersonalityQuestions] = useState([]);
@@ -32,32 +32,33 @@ export default function App() {
       behavior: "smooth",
     });
     event.preventDefault();
-    changeView("yes");
-    handleQuery()
-
-   };
-
-  const handleQuery = async function () {
-    try{
-      const URI = "https://readmycoffeeapi.onrender.com/api/generate_coffee"
-      const request = await fetch(URI,{
-        method:"POST",
-        body:JSON.stringify(input),
-        headers:{
-          "Content-Type":"application/json"
-        },
-      })
-      await request.json().then((data)=>{
-        createCoffee(Array.isArray(data) ? data.map((obj)=> obj) : data)
-
-      })
-    }catch(err){
-      return new Error(err)
-    }
-   
+    changeView("different");
+    handleQuery();
   };
 
-  useEffect(()=> {
+  const handleQuery = async function () {
+    try {
+      const URI = "https://readmycoffeeapi.onrender.com/api/generate_coffee";
+      const request = await fetch(URI, {
+        method: "POST",
+        body: JSON.stringify(input),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      await request.json().then((data) => {
+        createCoffee(Array.isArray(data) ? data.map((obj) => obj) : data);
+      });
+    } catch (err) {
+      return new Error(err);
+    }
+  };
+  const handleReset = function(event){
+    event.preventDefault();
+    changeView("default")
+  };
+
+  useEffect(() => {
     const getQuestion = async function () {
       try {
         const URI = "https://readmycoffeeapi.onrender.com/api/questions";
@@ -80,7 +81,7 @@ export default function App() {
       }
     };
     getQuestion();
-  },[])
+  }, []);
   return (
     <>
       <header>
@@ -91,9 +92,9 @@ export default function App() {
           will be able to order or prepare the right coffee for you, based on
           your mood"
         </p>
-        <button className="btn_start">Make my coffee</button>
         <div className="img_main"></div>
       </header>
+
       <main id="main">
         {defaultView === "default" ? (
           <form action="">
@@ -115,8 +116,8 @@ export default function App() {
             </button>
           </form>
         ) : (
-          <Results data={coffee} ></Results>
-        )}
+          <Results data={coffee} state={handleReset}></Results>
+          )}
       </main>
       <footer>
         <section className="footer-sides-section">
